@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') -%>
+
+    <h1>Lista de Superheroes</h1>
+    <ul>
+        <% 
+            superheroes.forEach(superheroe => { %>
+                <li>
+                    <a href="/api/heroes/<%= superheroe.id %>"><%= superheroe.nombreSuperHeroe %> (Edad: <%= superheroe.edad %>)</a>
+                </li>
+                <%
+            });
+        %>
+    </ul>
+</body>
+</html>
