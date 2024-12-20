@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superheroe agregado</title>
+</head>
+<body>
+
+    <h1>Agregado!</h1>
+    <h2><%= nuevoHeroe.nombreSuperHeroe %> - (ID: <%= nuevoHeroe._id %>)</h2>
+    <p><strong>Nombre Real:</strong> <%= nuevoHeroe.nombreReal %></p>
+    <p><strong>Edad:</strong> <%= nuevoHeroe.edad %></p>
+    <p><strong>Poderes:</strong> <%= nuevoHeroe.poderes.join(', ') %></p>
+    <%- include('partials/footer.ejs') -%>
+</body>
+</html>

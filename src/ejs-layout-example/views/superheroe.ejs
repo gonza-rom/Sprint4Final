@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superheroe por ID</title>
+</head>
+<body>
+    <h1><%= superheroe.nombreSuperHeroe %> - (ID: <%= superheroe._id %>)</h1>
+    <p><strong>Nombre Real:</strong> <%= superheroe.nombreReal %></p>
+    <p><strong>Edad:</strong> <%= superheroe.edad %></p>
+    <p><strong>Poderes:</strong> <%= superheroe.poderes.join(', ') %></p>
+    
+    <a href="/api/heroes/editar/<%= superheroe.id %>">Editar</a>
+    <a href="/api/heroes/eliminar/<%= superheroe.id %>">Eliminar</a>
+    <%- include('partials/footer.ejs') -%>
+</body>
+</html>

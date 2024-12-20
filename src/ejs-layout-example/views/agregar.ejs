@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Superhéroe</title>
+</head>
+<body>
+    <!-- Mostrar errores si existen -->
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+        <ul style="color: red;">
+            <% errors.forEach(error => { %>
+                <li><%= error %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+    <% if (superheroe.id) { %>
+        <h1>Editar Superheroe</h1>        
+        <form action="/api/heroes/<%= superheroe.id %>?_method=PUT" method="POST">
+    <% } else { %>
+        <h1>Agregar un Nuevo Superhéroe</h1>
+        <form action="/api/heroes" method="POST">
+    <% } %>
+
+
+    <!-- Formulario para agregar un superhéroe -->
+    
+        <label for="nombreSuperHeroe">Nombre del Superhéroe:</label><br>
+        
+        <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" value="<%= superheroe.nombreSuperHeroe || '' %>" required><br><br>
+
+        <label for="nombreReal">Nombre Real:</label><br>
+        <input type="text" name="nombreReal" id="nombreReal" value="<%= superheroe.nombreReal || '' %>" required><br><br>
+
+        <label for="edad">Edad:</label><br>
+        <input type="number" name="edad" id="edad" value="<%= superheroe.edad || '' %>" required><br><br>
+
+        <label for="poderes">Poderes (separados por comas):</label><br>
+        <input type="text" name="poderes" id="poderes" value="<%= superheroe.poderes ? superheroe.poderes.join(', ') : '' %>" required><br><br>
+
+        <label for="aliados">Aliados (separados por comas):</label><br>
+        <input type="text" name="aliados" id="aliados" value="<%= superheroe.aliados ? superheroe.aliados.join(', ') : '' %>"><br><br>
+
+        <label for="enemigos">Enemigos (separados por comas):</label><br>
+        <input type="text" name="enemigos" id="enemigos" value="<%= superheroe.enemigos ? superheroe.enemigos.join(', ') : '' %>"><br><br>
+
+        <% if (superheroe.id) { %>
+            <button type="submit">Actualizar Superhéroe</button>
+        <% } else { %>
+            <button type="submit">Agregar Superhéroe</button>
+        <% } %>
+
+        
+    </form>
+
+    <%- include('partials/footer.ejs') -%>
+</body>
+</html>
