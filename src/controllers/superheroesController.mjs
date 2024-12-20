@@ -9,7 +9,7 @@ import {
     eliminarSuperheroePorNombreService
 } from '../services/superheroesService.mjs';
 
-import { renderizarListaSuperheroes, renderizarSuperheroe } from '../ejs-layout-example/responseView.mjs';
+import { renderizarListaSuperheroes, renderizarSuperheroe } from '../responseView.mjs';
 
 /**
  * Controlador para obtener todos los superhéroes.

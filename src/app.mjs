@@ -1,6 +1,6 @@
 import express from 'express';
-import { connectDB } from '../config/dbConfig.mjs';
-import superHeroRoutes from '../routes/superHeroRoutes.mjs';
+import { connectDB } from './config/dbConfig.mjs';
+import superHeroRoutes from './routes/superHeroRoutes.mjs';
 import methodOverride from 'method-override';
 import path from 'path';
 import expressEjsLayouts from 'express-ejs-layouts';
@@ -11,14 +11,14 @@ const PORT = process.env.PORT || 3000;
 
 //Configurar EJS como motor de plantillas
 app.set('view engine','ejs');
-app.set('views', path.resolve('./views'));
+app.set('views', path.resolve('./ejs-layout-example/views'));
 
 //Configurar express-ejs-layout
 app.use(expressEjsLayouts);
 app.set('layout','layout'); //Archivo base de layout
 
 //Servir archivos estaticos
-app.use(express.static(path.resolve('./public')));
+app.use(express.static(path.resolve('./ejs-layout-example/public')));
 
 // Middleware para parsear JSON
 app.use(express.json());
