@@ -64,7 +64,7 @@ app.use((req, res) => {
     res.status(404).send({ mensaje: "Ruta no encontrada" });
 });
 
-// Iniciar el servidor
-app.listen(PORT, () => {
+// Iniciar el servidor  
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor escuchando en el puerto http://localhost:${PORT}`);
 });
